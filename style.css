@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #121212;
+    color: white;
+    padding: 30px;
+}
+
+h1 {
+    color: #1db954;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    width: 250px;
+}
+
+button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.album {
+    background: #181818;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.album img {
+    width: 100%;
+}
+
+.album a {
+    color: #1db954;
+}
