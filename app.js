@@ -22,12 +22,14 @@ form.addEventListener("submit", async function(event) {
     }
 
     data.results.forEach(function(album) {
+        
+        const date = new Date(album.releaseDate).getFullYear();
     results.innerHTML += `
         <div class="album">
         <img src="${album.artworkUrl100}">
         <h2>${album.collectionName}</h2>
         <p>${album.artistName}</p>
-        <p>${album.releaseDate}</p>
+        <p>${date}</p>
         <a href="${album.collectionViewUrl}" target="_blank">View Album</a>
         </div>
     `;

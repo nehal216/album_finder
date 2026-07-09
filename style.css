@@ -1,26 +1,74 @@
 body {
     font-family: Arial, sans-serif;
-    background: #121212;
+    background: #6528d8;
     color: white;
     padding: 30px;
 }
 
-h1 {
-    color: #1db954;
+.navbar {
+    height: 70px;
+    padding: 0 4%;
+    color: #ffffff;
+    font-size: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #ffffff;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+h1, h2 {
+    color: #ffffff;
 }
 
 form {
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
 }
 
-input {
-    padding: 10px;
-    width: 250px;
+#artist-input {
+  width: 560px;
+  max-width: 70%;
+  padding: 16px 20px;
+  border: 1px solid #3b177c;
+  border-right: none;
+  border-radius: 18px 0 0 18px;
+  background: #7f4bd8;
+  color: white;
+  font-size: 18px;
+  outline: none;
+}
+
+#artist-input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 button {
-    padding: 10px;
-    cursor: pointer;
+  padding: 16px 24px;
+  border: 1px solid #3b177c;
+  border-radius: 0 18px 18px 0;
+  background: #5f28c9;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #9360e8;
+}
+
+hr {
+    margin-top: 25px;
+    border: none;
+    border-top: 1px solid white;
 }
 
 #results {
@@ -30,15 +78,28 @@ button {
 }
 
 .album {
-    background: #181818;
-    padding: 15px;
-    border-radius: 8px;
+    background:
+        linear-gradient(#936fd7, #7943dc) padding-box,
+        linear-gradient(135deg, #ffffff, #7c3aed, #00c2ff) border-box;
+    backdrop-filter: blur(12px);
+    border: 1px solid #3f1096;
+    border-radius: 18px;
+    padding: 18px;
+    transition: transform 0.40s ease, box-shadow 0.25s ease;
+}
+
+.album:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px #190342;
 }
 
 .album img {
     width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 30px #371080;
 }
 
 .album a {
-    color: #1db954;
+    color: #ffffff;
+    text-decoration: underline;
 }
