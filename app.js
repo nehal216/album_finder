@@ -3,6 +3,26 @@ const input = document.querySelector("#artist-input");
 const message = document.querySelector("#message");
 const results = document.querySelector("#results");
 
+function searchItunes(url) {
+    return new Promise(function(resolve, reject) {
+        const callbackName = "itunesCallback" + Date.now();
+
+        window[callbackName] = function(data) {
+        resolve(data);
+        delete window[callbackName];
+        script.remove();
+        };
+
+        const script = document.createElement("script");
+        script.src = `${url}&callback=${callbackName}`;
+        script.onerror = function() {
+        reject("Search failed");
+        };
+
+        document.body.appendChild(script);
+    });
+}
+
 form.addEventListener("submit", async function(event) {
     event.preventDefault();
 
@@ -13,8 +33,7 @@ form.addEventListener("submit", async function(event) {
     message.textContent = "Searching...";
     results.innerHTML = "";
 
-    const response = await fetch(url);
-    const data = await response.json();
+    const data = await searchItunes(url);
 
     if (data.results.length === 0) {
     message.textContent = "No albums found.";
@@ -25,7 +44,7 @@ form.addEventListener("submit", async function(event) {
         const date = new Date(album.releaseDate).getFullYear();
     results.innerHTML += `
         <div class="album">
-        <img src="${album.artworkUrl100}">
+        <img src="${album.artworkUrl100.replace('100x100bb', '600x600bb')}">
         <h2>${album.collectionName}</h2>
         <p>${album.artistName}</p>
         <p>${date}</p>
