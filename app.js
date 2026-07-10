@@ -22,7 +22,6 @@ form.addEventListener("submit", async function(event) {
     }
 
     data.results.forEach(function(album) {
-        
         const date = new Date(album.releaseDate).getFullYear();
     results.innerHTML += `
         <div class="album">
